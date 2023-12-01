@@ -20,6 +20,21 @@ class VideoDownloder :
         self.root.geometry( "1200x700+200+80" )
         self.root.resizable( False, False )
 
+    def firstPage(self) :
+
+        # Defining Structure
+        first_page = Canvas( self.root, 
+                              width = self.width, height = self.height, 
+                               bg = "black", highlightcolor = "#3c5390", 
+                                borderwidth = 0 )
+        first_page.pack( fill = "both", expand = True )
+
+        # Heading
+        first_page.create_text( 400, 119, text = "Video Downloader", 
+                                font = ( "Georgia", 42, "bold" ), fill = "#ec1c24" )
+
+        self.root.mainloop()
+
 if __name__ == "__main__" :
 
     download_class = VideoDownloder()
