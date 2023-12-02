@@ -33,6 +33,16 @@ class VideoDownloder :
         first_page.create_text( 400, 119, text = "Video Downloader", 
                                 font = ( "Georgia", 42, "bold" ), fill = "#ec1c24" )
 
+        # Next Page Button
+        next_bt = ctk.CTkButton( master = first_page, 
+                                  text = "Let's Go ->", text_font = ( "Tahoma", 20 ), 
+                                   width = 100, height = 40, corner_radius = 18,
+                                    bg_color = "#fecc8f", fg_color = "#ec1c24", 
+                                     hover_color = "#ff5359", border_width = 0,
+                                      text_color = "white",
+                                       command = lambda : print("changed") )
+        next_bt_win = first_page.create_window( 320, 720, anchor = "nw", window = next_bt )
+
         self.root.mainloop()
 
 if __name__ == "__main__" :
