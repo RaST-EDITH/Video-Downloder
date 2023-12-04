@@ -30,10 +30,19 @@ class VideoDownloder :
 
         # Defining Structure
         video_page = Canvas( self.root, 
-                              width = wid, height = hgt, 
+                              width = self.wid, height = self.hgt, 
                                bg = "black", highlightcolor = "#3c5390", 
                                 borderwidth = 0 )
         video_page.pack( fill = "both", expand = True )
+
+        # Link Entry Box
+        refLink = ctk.CTkEntry( master = video_page, 
+                                 placeholder_text = "Insert Video/Playlist Link Here", text_font = ( font[1], 20 ), 
+                                  width = 550, height = 30, corner_radius = 14,
+                                   placeholder_text_color = "#666666", text_color = "#191919", 
+                                    fg_color = "#e1f5ff", bg_color = "black", 
+                                     border_color = "white", border_width = 3)
+        refLink_win = video_page.create_window( 325, 320-120, anchor = "nw", window = refLink )
 
         # Heading
         video_page.create_text( 700, 120, text = "YouTube Video Downloder", 
