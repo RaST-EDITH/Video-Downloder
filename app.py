@@ -35,6 +35,10 @@ class VideoDownloder :
                                 borderwidth = 0 )
         video_page.pack( fill = "both", expand = True )
 
+        # Heading
+        video_page.create_text( 700, 120, text = "YouTube Video Downloder", 
+                            font = ( "Georgia", 42, "bold" ), fill = "#1c54df" )
+
         # Link Entry Box
         refLink = ctk.CTkEntry( master = video_page, 
                                  placeholder_text = "Insert Video/Playlist Link Here", text_font = ( font[1], 20 ), 
@@ -50,9 +54,14 @@ class VideoDownloder :
                                         border_color = "white", border_width = 6)
         display_area.place_configure( x = 270, y = 300, anchor = "nw")
 
-        # Heading
-        video_page.create_text( 700, 120, text = "YouTube Video Downloder", 
-                            font = ( "Georgia", 42, "bold" ), fill = "#1c54df" )
+        # Label in frame
+        frm_label = ctk.CTkLabel( master = display_area, 
+                                   text = "NOTE:-\nDon't insert or enter\nshared video link.\nEnter link of video or\nplaylist after opening the\nvideo and playlist.", text_font = ("Georgia", 20),
+                                    width = 200, height = 50, corner_radius = 15,
+                                     bg_color = "grey", fg_color = "white", text_color = "red"  )
+        frm_label.place_configure( x = 300, y = 120, anchor = "nw" )
+
+        refLink.bind('<Return>', lambda event = None : self.checkandDownload( refLink.get(), display_area, video_page ) )
 
         self.root.mainloop()
 
