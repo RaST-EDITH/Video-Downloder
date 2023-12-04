@@ -63,6 +63,15 @@ class VideoDownloder :
 
         refLink.bind('<Return>', lambda event = None : self.checkandDownload( refLink.get(), display_area, video_page ) )
 
+        # Download Button
+        download_bt = ctk.CTkButton( master = video_page, 
+                                      text = "Download", text_font = ( font[0], 20 ), 
+                                       width = 100, height = 40, corner_radius = 18,
+                                        bg_color = "black", fg_color = "red", 
+                                         hover_color = "#ff5359", border_width = 0, 
+                                          command = lambda : self.checkandDownload( refLink.get(), display_area, video_page ) )
+        download_bt_win = video_page.create_window( 1030, 320-120, anchor = "nw", window = download_bt )
+
         self.root.mainloop()
 
     def firstPage(self) :
