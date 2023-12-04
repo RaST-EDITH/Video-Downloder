@@ -26,7 +26,7 @@ class VideoDownloder :
         can.destroy()
         page()
 
-    def videoDownloder(self) :
+    def downloderPage(self) :
 
         # Defining Structure
         video_page = Canvas( self.root, 
@@ -43,6 +43,12 @@ class VideoDownloder :
                                     fg_color = "#e1f5ff", bg_color = "black", 
                                      border_color = "white", border_width = 3)
         refLink_win = video_page.create_window( 325, 320-120, anchor = "nw", window = refLink )
+
+        display_area = ctk.CTkFrame( master = video_page, 
+                                      width = 800, height = 400, corner_radius = 30,
+                                       bg_color = "black", fg_color = "grey",
+                                        border_color = "white", border_width = 6)
+        display_area.place_configure( x = 270, y = 300, anchor = "nw")
 
         # Heading
         video_page.create_text( 700, 120, text = "YouTube Video Downloder", 
@@ -70,7 +76,7 @@ class VideoDownloder :
                                     bg_color = "#fecc8f", fg_color = "#ec1c24", 
                                      hover_color = "#ff5359", border_width = 0,
                                       text_color = "white",
-                                       command = lambda : print("changed") )
+                                       command = lambda : self.change( first_page, downloderPage) )
         next_bt_win = first_page.create_window( 320, 720, anchor = "nw", window = next_bt )
 
         self.root.mainloop()
