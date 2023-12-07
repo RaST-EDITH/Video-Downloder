@@ -26,6 +26,19 @@ class VideoDownloder :
         can.destroy()
         page()
 
+    def checkandDownload( self, link, frame, can ) :
+
+        try :
+
+            if ( 'youtube' in link ) :
+
+                if ( 'watch' in link ) :
+
+                    # Getting path of folder from dialog
+                    open_folder = filedialog.askdirectory( initialdir = os.getcwd() ,title = "Browse Folder")
+                    if ( open_folder == "" ) :
+                        showerror( title = "Empty Field", message = "Enter or Select proper path")
+
     def downloderPage(self) :
 
         # Defining Structure
