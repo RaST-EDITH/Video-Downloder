@@ -30,7 +30,7 @@ class VideoDownloder :
 
         # Defining Structure
         video_page = Canvas( self.root, 
-                              width = self.wid, height = self.hgt, 
+                              width = self.width, height = self.height, 
                                bg = "black", highlightcolor = "#3c5390", 
                                 borderwidth = 0 )
         video_page.pack( fill = "both", expand = True )
@@ -41,7 +41,7 @@ class VideoDownloder :
 
         # Link Entry Box
         refLink = ctk.CTkEntry( master = video_page, 
-                                 placeholder_text = "Insert Video/Playlist Link Here", text_font = ( font[1], 20 ), 
+                                 placeholder_text = "Insert Video/Playlist Link Here", text_font = ( "Georgia", 20 ), 
                                   width = 550, height = 30, corner_radius = 14,
                                    placeholder_text_color = "#666666", text_color = "#191919", 
                                     fg_color = "#e1f5ff", bg_color = "black", 
@@ -65,12 +65,21 @@ class VideoDownloder :
 
         # Download Button
         download_bt = ctk.CTkButton( master = video_page, 
-                                      text = "Download", text_font = ( font[0], 20 ), 
+                                      text = "Download", text_font = ( "Georgia", 20 ), 
                                        width = 100, height = 40, corner_radius = 18,
                                         bg_color = "black", fg_color = "red", 
                                          hover_color = "#ff5359", border_width = 0, 
                                           command = lambda : self.checkandDownload( refLink.get(), display_area, video_page ) )
         download_bt_win = video_page.create_window( 1030, 320-120, anchor = "nw", window = download_bt )
+
+        # Return Button
+        ret_bt = ctk.CTkButton( master = video_page, 
+                                 text = "Back", text_font = ( "Georgia", 20 ), 
+                                  width = 100, height = 50, corner_radius = 18,
+                                   bg_color = "black", fg_color = "red", 
+                                    hover_color = "#ff5359", border_width = 0, 
+                                     command = lambda : self.change( video_page, self.firstPage) )
+        ret_bt_win = video_page.create_window( 30, 20, anchor = "nw", window = ret_bt )
 
         self.root.mainloop()
 
@@ -94,7 +103,7 @@ class VideoDownloder :
                                     bg_color = "#fecc8f", fg_color = "#ec1c24", 
                                      hover_color = "#ff5359", border_width = 0,
                                       text_color = "white",
-                                       command = lambda : self.change( first_page, downloderPage) )
+                                       command = lambda : self.change( first_page, self.downloderPage) )
         next_bt_win = first_page.create_window( 320, 720, anchor = "nw", window = next_bt )
 
         self.root.mainloop()
