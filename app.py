@@ -64,6 +64,16 @@ class VideoDownloder :
                                                 border_color = "white", border_width = 6)
                         frame.place_configure( x = 270, y = 300, anchor = "nw")
 
+                        # Title Label
+                        if ( len(details["title"]) > 70 ) :
+                            details["title"] = details["title"][:69] + "..."
+
+                        title = ctk.CTkLabel( master = frame, 
+                                            text = details["title"], text_font = ("Georgia", 20),
+                                                height = 50, corner_radius = 15,
+                                                bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        title.place_configure( x = 50, y = 50, anchor = "nw" )
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
