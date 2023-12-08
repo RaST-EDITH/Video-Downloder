@@ -46,6 +46,17 @@ class VideoDownloder :
                         showinfo( title = "Started...", message = "Downloading Started\n     Successfully" )
                         ref.streams.filter(type='video', progressive=True, file_extension='mp4').order_by('resolution').desc().first().download(open_folder)
 
+                        details = {
+                            # "image" : ref.thumbnail_url,
+                            "title" : ref.title,
+                            "views" : ref.views,
+                            "author" : ref.author,
+                            "status" : "Video Downloaded\nSuceesfully\n",
+                            "path" : ref.title + ".mp4"
+                        }
+
+                        frame.destroy()
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
