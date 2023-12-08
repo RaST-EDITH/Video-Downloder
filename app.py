@@ -38,6 +38,16 @@ class VideoDownloder :
                     open_folder = filedialog.askdirectory( initialdir = os.getcwd() ,title = "Browse Folder")
                     if ( open_folder == "" ) :
                         showerror( title = "Empty Field", message = "Enter or Select proper path")
+                    
+                    else :
+
+                        from pytube import YouTube
+                        ref = YouTube(link)
+                        showinfo( title = "Started...", message = "Downloading Started\n     Successfully" )
+                        ref.streams.filter(type='video', progressive=True, file_extension='mp4').order_by('resolution').desc().first().download(open_folder)
+
+        except :
+            showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
     def downloderPage(self) :
 
