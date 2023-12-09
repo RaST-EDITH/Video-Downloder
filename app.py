@@ -59,9 +59,9 @@ class VideoDownloder :
 
                         # Frame
                         frame = ctk.CTkFrame( master = can, 
-                                            width = 800, height = 400, corner_radius = 30,
+                                               width = 800, height = 400, corner_radius = 30,
                                                 bg_color = "black", fg_color = "grey",
-                                                border_color = "white", border_width = 6)
+                                                 border_color = "white", border_width = 6)
                         frame.place_configure( x = 270, y = 300, anchor = "nw")
 
                         # Title Label
@@ -69,23 +69,36 @@ class VideoDownloder :
                             details["title"] = details["title"][:69] + "..."
 
                         title = ctk.CTkLabel( master = frame, 
-                                            text = details["title"], text_font = ("Georgia", 20),
+                                               text = details["title"], text_font = ("Georgia", 20),
                                                 height = 50, corner_radius = 15,
-                                                bg_color = "grey", fg_color = "white", text_color = "red"  )
+                                                 bg_color = "grey", fg_color = "white", text_color = "red"  )
                         title.place_configure( x = 50, y = 50, anchor = "nw" )
 
                         # Author Label
                         author = ctk.CTkLabel( master = frame, 
                                                 text = "Author", text_font = ("Georgia", 18),
-                                                width = 100, height = 50, corner_radius = 15,
-                                                bg_color = "grey", fg_color = "white", text_color = "red"  )
+                                                 width = 100, height = 50, corner_radius = 15,
+                                                  bg_color = "grey", fg_color = "white", text_color = "red"  )
                         author.place_configure( x = 50, y = 140, anchor = "nw" )
 
                         author_val = ctk.CTkLabel( master = frame, 
                                                     text = details["author"], text_font = ("Georgia", 18),
-                                                    width = 100, height = 50, corner_radius = 15,
-                                                    bg_color = "grey", fg_color = "white", text_color = "red"  )
+                                                     width = 100, height = 50, corner_radius = 15,
+                                                      bg_color = "grey", fg_color = "white", text_color = "red"  )
                         author_val.place_configure( x = 100, y = 220, anchor = "nw" )
+
+                        # Views Label
+                        views = ctk.CTkLabel( master = frame, 
+                                               text = "Views", text_font = ("Georgia", 18),
+                                                width = 100, height = 50, corner_radius = 15,
+                                                 bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        views.place_configure( x = 50, y = 300, anchor = "nw" )
+
+                        views_val = ctk.CTkLabel( master = frame, 
+                                                   text = details["views"], text_font = ("Georgia", 18),
+                                                    width = 100, height = 50, corner_radius = 15,
+                                                     bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        views_val.place_configure( x = 100, y = 380, anchor = "nw" )
 
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
