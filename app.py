@@ -100,6 +100,13 @@ class VideoDownloder :
                                                      bg_color = "grey", fg_color = "white", text_color = "red"  )
                         views_val.place_configure( x = 100, y = 380, anchor = "nw" )
 
+                        # Status Label
+                        status_chk = ctk.CTkLabel( master = frame, 
+                                                    text = details["status"], text_font = ("Georgia", 18),
+                                                     width = 360, height = 230, corner_radius = 15,
+                                                      bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        status_chk.place_configure( x = 500, y = 150, anchor = "nw" )
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
