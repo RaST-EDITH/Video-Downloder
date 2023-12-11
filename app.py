@@ -135,6 +135,12 @@ class VideoDownloder :
                             "status" : "Playlist Downloaded\nSuccessfully\n"
                         }
 
+                        showinfo( title = "Started..", message = "Playlist Downloading\n         Started" )
+                        for vid in all_videos.videos :
+                            vid.streams.filter(type='video', progressive=True, file_extension='mp4').order_by('resolution').desc().first().download(os.path.join(open_folder, all_videos.title))
+
+                        frame.destroy()
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
