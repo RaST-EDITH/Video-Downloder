@@ -122,6 +122,18 @@ class VideoDownloder :
                     open_folder = filedialog.askdirectory( initialdir = os.getcwd() ,title = "Browse Folder")
                     if ( open_folder == "" ) :
                         showerror( title = "Empty Field", message = "Enter or Select proper path")
+                    
+                    else :
+
+                        from pytube import Playlist
+                        all_videos = Playlist(link)
+                        details = {
+                            "title" : all_videos.title,
+                            "Number of videos" : all_videos.length,
+                            "owner" : all_videos.owner,
+                            "views" : all_videos.views,
+                            "status" : "Playlist Downloaded\nSuccessfully\n"
+                        }
 
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
