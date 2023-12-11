@@ -115,6 +115,13 @@ class VideoDownloder :
                                                      hover_color = "#ff5359", border_width = 0, 
                                                       command = lambda : os.startfile( os.path.join( open_folder, details["path"])) )
                         open_bt_win = can.create_window( 930, 650, anchor = "nw", window = open_bt )
+                
+                elif ( 'playlist' in link ) :
+
+                    # Getting path of folder from dialog
+                    open_folder = filedialog.askdirectory( initialdir = os.getcwd() ,title = "Browse Folder")
+                    if ( open_folder == "" ) :
+                        showerror( title = "Empty Field", message = "Enter or Select proper path")
 
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
