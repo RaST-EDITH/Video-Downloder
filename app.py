@@ -141,6 +141,13 @@ class VideoDownloder :
 
                         frame.destroy()
 
+                        # Frame
+                        frame = ctk.CTkFrame( master = can, 
+                                               width = 800, height = 400, corner_radius = 30,
+                                                bg_color = "black", fg_color = "grey",
+                                                 border_color = "white", border_width = 6)
+                        frame.place_configure( x = 270, y = 300, anchor = "nw")
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
