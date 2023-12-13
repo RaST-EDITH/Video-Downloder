@@ -204,6 +204,15 @@ class VideoDownloder :
                                                       bg_color = "grey", fg_color = "white", text_color = "red"  )
                         status_chk.place_configure( x = 500, y = 150, anchor = "nw" )
 
+                        # File Open Button
+                        open_bt = ctk.CTkButton( master = can, 
+                                                  text = "Open >", text_font = ( "Georgia", 18), 
+                                                   width = 100, height = 40, corner_radius = 15,
+                                                    bg_color = "white", fg_color = "red", 
+                                                     hover_color = "#ff5359", border_width = 0, 
+                                                      command = lambda : os.startfile( os.path.join(open_folder, all_videos.title)) )
+                        open_bt_win = can.create_window( 930, 650, anchor = "nw", window = open_bt )
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
