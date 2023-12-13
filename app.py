@@ -158,6 +158,19 @@ class VideoDownloder :
                                                  bg_color = "grey", fg_color = "white", text_color = "red"  )
                         title.place_configure( x = 50, y = 50, anchor = "nw" )
 
+                        # Author Label
+                        author = ctk.CTkLabel( master = frame, 
+                                                text = "Owner", text_font = ("Georgia", 15),
+                                                 width = 100, height = 40, corner_radius = 15,
+                                                  bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        author.place_configure( x = 50, y = 130, anchor = "nw" )
+
+                        author_val = ctk.CTkLabel( master = frame, 
+                                                    text = details["owner"], text_font = ("Georgia", 15),
+                                                     width = 100, height = 40, corner_radius = 15,
+                                                      bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        author_val.place_configure( x = 100, y = 200-10, anchor = "nw" )
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
