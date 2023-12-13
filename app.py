@@ -184,6 +184,19 @@ class VideoDownloder :
                                                      bg_color = "grey", fg_color = "white", text_color = "red"  )
                         views_val.place_configure( x = 100, y = 380-70, anchor = "nw" )
 
+                        # Number of Videos Label
+                        vid_count = ctk.CTkLabel( master = frame, 
+                                                   text = "Views", text_font = ("Georgia", 15),
+                                                    width = 100, height = 40, corner_radius = 15,
+                                                     bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        vid_count.place_configure( x = 50, y = 370, anchor = "nw" )
+
+                        vid_count_val = ctk.CTkLabel( master = frame, 
+                                                       text = details["Number of videos"], text_font = ("Georgia", 15),
+                                                        width = 100, height = 40, corner_radius = 15,
+                                                         bg_color = "grey", fg_color = "white", text_color = "red"  )
+                        vid_count_val.place_configure( x = 100, y = 430, anchor = "nw" )
+
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
 
