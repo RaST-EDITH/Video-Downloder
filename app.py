@@ -109,11 +109,11 @@ class VideoDownloder :
 
                         # File Open Button
                         open_bt = ctk.CTkButton( master = can, 
-                                                  text = "Play >", text_font = ( "Georgia", 18), 
+                                                  text = "Open >", text_font = ( "Georgia", 18), 
                                                    width = 100, height = 40, corner_radius = 15,
                                                     bg_color = "white", fg_color = "red", 
                                                      hover_color = "#ff5359", border_width = 0, 
-                                                      command = lambda : os.startfile( os.path.join( open_folder, details["path"])) )
+                                                      command = lambda : os.startfile( open_folder) )
                         open_bt_win = can.create_window( 930, 650, anchor = "nw", window = open_bt )
                 
                 elif ( 'playlist' in link ) :
@@ -212,6 +212,12 @@ class VideoDownloder :
                                                      hover_color = "#ff5359", border_width = 0, 
                                                       command = lambda : os.startfile( os.path.join(open_folder, all_videos.title)) )
                         open_bt_win = can.create_window( 930, 650, anchor = "nw", window = open_bt )
+
+                else :
+                    showerror( title = "Invalid Link", message = "Invalid Link Passed")
+        
+            else :
+                showerror( title = "Invalid Link", message = "Invalid Link Passed!")
 
         except :
             showerror( title = "Invalid Link", message = "Invalid Link Passed!!")
