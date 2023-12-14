@@ -26,6 +26,13 @@ class VideoDownloder :
         can.destroy()
         page()
 
+    def Imgo( self, file, w, h ) :
+
+        # Image processing
+        img = Image.open(file)
+        pht = ImageTk.PhotoImage( img.resize((w,h), Image.Resampling.LANCZOS ))
+        return pht
+
     def checkandDownload( self, link, frame, can ) :
 
         try :
@@ -289,18 +296,18 @@ class VideoDownloder :
         first_page.pack( fill = "both", expand = True )
 
         # Heading
-        first_page.create_text( 400, 119, text = "Video Downloader", 
-                                font = ( "Georgia", 42, "bold" ), fill = "#ec1c24" )
+        first_page.create_text( 1100-40, 300-40, text = "      Video\nDownloader", 
+                                font = ( "Georgia", 40, "bold" ), fill = "#ec1c24" )
 
         # Next Page Button
         next_bt = ctk.CTkButton( master = first_page, 
                                   text = "Let's Go ->", text_font = ( "Tahoma", 20 ), 
                                    width = 100, height = 40, corner_radius = 18,
-                                    bg_color = "#fecc8f", fg_color = "#ec1c24", 
+                                    bg_color = "#e6e6e6", fg_color = "#ec1c24", 
                                      hover_color = "#ff5359", border_width = 0,
                                       text_color = "white",
                                        command = lambda : self.change( first_page, self.downloderPage) )
-        next_bt_win = first_page.create_window( 320, 720, anchor = "nw", window = next_bt )
+        next_bt_win = first_page.create_window( 1000-40, 600, anchor = "nw", window = next_bt )
 
         self.root.mainloop()
 
