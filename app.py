@@ -19,6 +19,8 @@ class VideoDownloder :
         self.root.title( "Video Downloader" )
         self.root.geometry( "1200x700+200+80" )
         self.root.resizable( False, False )
+        self.first_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\FrontPage.jpg" ), 1498, 875)
+        self.second_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\back (2).jpg" ), 1498, 875)
 
     def change( self, can, page) :
 
@@ -294,6 +296,9 @@ class VideoDownloder :
                                bg = "black", highlightcolor = "#3c5390", 
                                 borderwidth = 0 )
         first_page.pack( fill = "both", expand = True )
+
+        # Background Image
+        first_page.create_image( 0, 0, image = self.first_back_image , anchor = "nw")
 
         # Heading
         first_page.create_text( 1100-40, 300-40, text = "      Video\nDownloader", 
