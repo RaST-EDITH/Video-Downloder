@@ -20,7 +20,6 @@ class VideoDownloder :
         self.root.geometry( "1200x700+200+80" )
         self.root.resizable( False, False )
         self.first_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\FrontPage.jpg" ), 1498, 875)
-        self.second_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\back (2).jpg" ), 1498, 875)
 
     def change( self, can, page) :
 
@@ -303,6 +302,13 @@ class VideoDownloder :
         # Heading
         first_page.create_text( 1100-40, 300-40, text = "      Video\nDownloader", 
                                 font = ( "Georgia", 40, "bold" ), fill = "#ec1c24" )
+        first_page.create_text( 1060, 400, text = "Your personalized YouTube", 
+                                font = ( "Georgia", 20, "bold"), fill = "black" )
+        first_page.create_text( 1070, 400+40, text = "Video and Playlist", 
+                                font = ( "Georgia", 20, "bold"), fill = "black" )
+        first_page.create_text( 1070, 400+80, text = "Downloader.", 
+                                font = ( "Georgia", 20, "bold"), fill = "black" )
+
 
         # Next Page Button
         next_bt = ctk.CTkButton( master = first_page, 
@@ -312,7 +318,7 @@ class VideoDownloder :
                                      hover_color = "#ff5359", border_width = 0,
                                       text_color = "white",
                                        command = lambda : self.change( first_page, self.downloderPage) )
-        next_bt_win = first_page.create_window( 1000-40, 600, anchor = "nw", window = next_bt )
+        next_bt_win = first_page.create_window( 1000-30, 600, anchor = "nw", window = next_bt )
 
         self.root.mainloop()
 
