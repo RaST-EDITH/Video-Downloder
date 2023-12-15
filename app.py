@@ -20,6 +20,7 @@ class VideoDownloder :
         self.root.geometry( "1200x700+200+80" )
         self.root.resizable( False, False )
         self.first_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\FrontPage.jpg" ), 1498, 875)
+        self.second_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\SecondPage.jpg" ), 1498, 875)
 
     def change( self, can, page) :
 
@@ -239,9 +240,12 @@ class VideoDownloder :
                                 borderwidth = 0 )
         video_page.pack( fill = "both", expand = True )
 
+        # Background Image
+        video_page.create_image( 0, 0, image = self.second_back_image , anchor = "nw")
+
         # Heading
-        video_page.create_text( 700, 120, text = "YouTube Video Downloder", 
-                            font = ( "Georgia", 42, "bold" ), fill = "#1c54df" )
+        video_page.create_text( 720, 200, text = "YouTube Video Downloder", 
+                            font = ( "Georgia", 40-4, "bold" ), fill = "#ec1c24" )
 
         # Link Entry Box
         refLink = ctk.CTkEntry( master = video_page, 
