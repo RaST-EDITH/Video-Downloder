@@ -244,21 +244,21 @@ class VideoDownloder :
         video_page.create_image( 0, 0, image = self.second_back_image , anchor = "nw")
 
         # Heading
-        video_page.create_text( 720, 200, text = "YouTube Video Downloder", 
-                            font = ( "Georgia", 40-4, "bold" ), fill = "#ec1c24" )
+        video_page.create_text( 720, 195, text = "YouTube Video Downloder", 
+                            font = ( "Georgia", 36, "bold" ), fill = "#ec1c24" )
 
         # Link Entry Box
         refLink = ctk.CTkEntry( master = video_page, 
                                  placeholder_text = "Insert Video/Playlist Link Here", text_font = ( "Georgia", 20 ), 
-                                  width = 550, height = 30, corner_radius = 14,
+                                  width = 570, height = 30, corner_radius = 14,
                                    placeholder_text_color = "#666666", text_color = "#191919", 
-                                    fg_color = "#e1f5ff", bg_color = "black", 
+                                    fg_color = "#e1f5ff", bg_color = "#e7e7e7", 
                                      border_color = "white", border_width = 3)
-        refLink_win = video_page.create_window( 325, 320-120, anchor = "nw", window = refLink )
+        refLink_win = video_page.create_window( 300, 240, anchor = "nw", window = refLink )
 
         display_area = ctk.CTkFrame( master = video_page, 
                                       width = 800, height = 400, corner_radius = 30,
-                                       bg_color = "black", fg_color = "grey",
+                                       bg_color = "#e7e7e7", fg_color = "grey",
                                         border_color = "white", border_width = 6)
         display_area.place_configure( x = 270, y = 300, anchor = "nw")
 
@@ -274,17 +274,17 @@ class VideoDownloder :
         # Download Button
         download_bt = ctk.CTkButton( master = video_page, 
                                       text = "Download", text_font = ( "Georgia", 20 ), 
-                                       width = 100, height = 40, corner_radius = 18,
-                                        bg_color = "black", fg_color = "red", 
+                                       width = 50, height = 40, corner_radius = 18,
+                                        bg_color = "#e7e7e7", fg_color = "red", 
                                          hover_color = "#ff5359", border_width = 0, 
                                           command = lambda : self.checkandDownload( refLink.get(), display_area, video_page ) )
-        download_bt_win = video_page.create_window( 1030, 320-120, anchor = "nw", window = download_bt )
+        download_bt_win = video_page.create_window( 1025, 240, anchor = "nw", window = download_bt )
 
         # Return Button
         ret_bt = ctk.CTkButton( master = video_page, 
                                  text = "Back", text_font = ( "Georgia", 20 ), 
                                   width = 100, height = 50, corner_radius = 18,
-                                   bg_color = "black", fg_color = "red", 
+                                   bg_color = "#f54343", fg_color = "red", 
                                     hover_color = "#ff5359", border_width = 0, 
                                      command = lambda : self.change( video_page, self.firstPage) )
         ret_bt_win = video_page.create_window( 30, 20, anchor = "nw", window = ret_bt )
