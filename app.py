@@ -21,6 +21,7 @@ class VideoDownloder :
         self.root.resizable( False, False )
         self.first_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\FrontPage.jpg" ), 1498, 875)
         self.second_back_image = self.Imgo( os.path.join( os.getcwd(), r"Design\SecondPage.jpg" ), 1498, 875)
+        self.back = self.Imgo( os.path.join( os.getcwd(), r"Design\arrow.png" ), 40, 30 )
 
     def change( self, can, page) :
 
@@ -257,35 +258,35 @@ class VideoDownloder :
         refLink_win = video_page.create_window( 300, 240, anchor = "nw", window = refLink )
 
         display_area = ctk.CTkFrame( master = video_page, 
-                                      width = 800, height = 400, corner_radius = 30,
+                                      width = 765, height = 360, corner_radius = 25,
                                        bg_color = "#e7e7e7", fg_color = "grey",
-                                        border_color = "white", border_width = 6)
-        display_area.place_configure( x = 270, y = 300, anchor = "nw")
+                                        border_color = "white", border_width = 4)
+        display_area.place_configure( x = 280, y = 300, anchor = "nw")
 
         # Label in frame
         frm_label = ctk.CTkLabel( master = display_area, 
-                                   text = "NOTE:-\nDon't insert or enter\nshared video link.\nEnter link of video or\nplaylist after opening the\nvideo and playlist.", text_font = ("Georgia", 20),
-                                    width = 200, height = 50, corner_radius = 15,
+                                   text = "NOTE:-\nDon't insert or enter\nshared video link.\nEnter link of video or\nplaylist after opening the\nvideo and playlist.", 
+                                    text_font = ("Georgia", 18), width = 200, height = 50, corner_radius = 15,
                                      bg_color = "grey", fg_color = "white", text_color = "red"  )
-        frm_label.place_configure( x = 300, y = 120, anchor = "nw" )
+        frm_label.place_configure( x = 300, y = 110, anchor = "nw" )
 
         refLink.bind('<Return>', lambda event = None : self.checkandDownload( refLink.get(), display_area, video_page ) )
 
         # Download Button
         download_bt = ctk.CTkButton( master = video_page, 
                                       text = "Download", text_font = ( "Georgia", 20 ), 
-                                       width = 50, height = 40, corner_radius = 18,
+                                       width = 50, height = 38, corner_radius = 18,
                                         bg_color = "#e7e7e7", fg_color = "red", 
-                                         hover_color = "#ff5359", border_width = 0, 
+                                         hover_color = "#ff5359", border_width = 0, text_color = "white",
                                           command = lambda : self.checkandDownload( refLink.get(), display_area, video_page ) )
         download_bt_win = video_page.create_window( 1025, 240, anchor = "nw", window = download_bt )
 
         # Return Button
         ret_bt = ctk.CTkButton( master = video_page, 
-                                 text = "Back", text_font = ( "Georgia", 20 ), 
-                                  width = 100, height = 50, corner_radius = 18,
+                                image = self.back, text = None,
+                                  width = 60, height = 40, corner_radius = 23,
                                    bg_color = "#f54343", fg_color = "red", 
-                                    hover_color = "#ff5359", border_width = 0, 
+                                    hover_color = "#ff5359", border_width = 4, border_color = "white",
                                      command = lambda : self.change( video_page, self.firstPage) )
         ret_bt_win = video_page.create_window( 30, 20, anchor = "nw", window = ret_bt )
 
