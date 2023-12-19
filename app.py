@@ -154,75 +154,75 @@ class VideoDownloder :
 
                         # Frame
                         frame = ctk.CTkFrame( master = can, 
-                                               width = 800, height = 400, corner_radius = 30,
-                                                bg_color = "black", fg_color = "grey",
-                                                 border_color = "white", border_width = 6)
-                        frame.place_configure( x = 270, y = 300, anchor = "nw")
+                                               width = 765, height = 360, corner_radius = 25,
+                                                bg_color = "#e7e7e7", fg_color = "grey",
+                                                 border_color = "white", border_width = 4)
+                        frame.place_configure( x = 280, y = 300, anchor = "nw")
 
                         # Title Label
-                        if ( len(details["title"]) > 70 ) :
-                            details["title"] = details["title"][:69] + "..."
+                        if ( len(details["title"]) > 51 ) :
+                            details["title"] = details["title"][:50] + "..."
 
                         title = ctk.CTkLabel( master = frame, 
-                                               text = details["title"], text_font = ("Georgia", 18),
-                                                height = 50, corner_radius = 15,
+                                               text = details["title"], text_font = ("Georgia", 20),
+                                                height = 40, corner_radius = 15,
                                                  bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        title.place_configure( x = 50, y = 50, anchor = "nw" )
+                        title.place_configure( x = 30, y = 30, anchor = "nw" )
 
                         # Author Label
                         author = ctk.CTkLabel( master = frame, 
-                                                text = "Owner", text_font = ("Georgia", 15),
-                                                 width = 100, height = 40, corner_radius = 15,
-                                                  bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        author.place_configure( x = 50, y = 130, anchor = "nw" )
+                                                text = "Author :-", text_font = ("Georgia", 15),
+                                                 width = 100, height = 32, corner_radius = 15,
+                                                  bg_color = "grey", fg_color = "white", text_color = "black"  )
+                        author.place_configure( x = 30, y = 110, anchor = "nw" )
 
                         author_val = ctk.CTkLabel( master = frame, 
                                                     text = details["owner"], text_font = ("Georgia", 15),
-                                                     width = 100, height = 40, corner_radius = 15,
+                                                     width = 100, height = 32, corner_radius = 15,
                                                       bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        author_val.place_configure( x = 100, y = 200-10, anchor = "nw" )
+                        author_val.place_configure( x = 80, y = 160, anchor = "nw" )
 
                         # Views Label
                         views = ctk.CTkLabel( master = frame, 
-                                               text = "Views", text_font = ("Georgia", 15),
-                                                width = 100, height = 40, corner_radius = 15,
-                                                 bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        views.place_configure( x = 50, y = 300-50, anchor = "nw" )
+                                               text = "Views :-", text_font = ("Georgia", 15),
+                                                width = 100, height = 32, corner_radius = 15,
+                                                 bg_color = "grey", fg_color = "white", text_color = "black"  )
+                        views.place_configure( x = 30, y = 220, anchor = "nw" )
 
                         views_val = ctk.CTkLabel( master = frame, 
                                                    text = details["views"], text_font = ("Georgia", 15),
-                                                    width = 100, height = 40, corner_radius = 15,
+                                                    width = 100, height = 32, corner_radius = 15,
                                                      bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        views_val.place_configure( x = 100, y = 380-70, anchor = "nw" )
+                        views_val.place_configure( x = 80, y = 270, anchor = "nw" )
 
                         # Number of Videos Label
                         vid_count = ctk.CTkLabel( master = frame, 
-                                                   text = "Views", text_font = ("Georgia", 15),
-                                                    width = 100, height = 40, corner_radius = 15,
-                                                     bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        vid_count.place_configure( x = 50, y = 370, anchor = "nw" )
+                                                   text = "No. of Video(s) :-", text_font = ("Georgia", 15),
+                                                    width = 100, height = 32, corner_radius = 15,
+                                                     bg_color = "grey", fg_color = "white", text_color = "black"  )
+                        vid_count.place_configure( x = 30, y = 330, anchor = "nw" )
 
                         vid_count_val = ctk.CTkLabel( master = frame, 
                                                        text = details["Number of videos"], text_font = ("Georgia", 15),
-                                                        width = 100, height = 40, corner_radius = 15,
+                                                        width = 100, height = 32, corner_radius = 15,
                                                          bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        vid_count_val.place_configure( x = 100, y = 430, anchor = "nw" )
+                        vid_count_val.place_configure( x = 80, y = 380, anchor = "nw" )
 
                         # Status Label
                         status_chk = ctk.CTkLabel( master = frame, 
                                                     text = details["status"], text_font = ("Georgia", 18),
                                                      width = 360, height = 230, corner_radius = 15,
                                                       bg_color = "grey", fg_color = "white", text_color = "red"  )
-                        status_chk.place_configure( x = 500, y = 150, anchor = "nw" )
+                        status_chk.place_configure( x = 460, y = 110, anchor = "nw" )
 
                         # File Open Button
                         open_bt = ctk.CTkButton( master = can, 
                                                   text = "Open >", text_font = ( "Georgia", 18), 
                                                    width = 100, height = 40, corner_radius = 15,
-                                                    bg_color = "white", fg_color = "red", 
+                                                    bg_color = "white", fg_color = "red", text_color = "white",
                                                      hover_color = "#ff5359", border_width = 0, 
                                                       command = lambda : os.startfile( os.path.join(open_folder, all_videos.title)) )
-                        open_bt_win = can.create_window( 930, 650, anchor = "nw", window = open_bt )
+                        open_bt_win = can.create_window( 895, 605, anchor = "nw", window = open_bt )
 
                 else :
                     showerror( title = "Invalid Link", message = "Invalid Link Passed")
